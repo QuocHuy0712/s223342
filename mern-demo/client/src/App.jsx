@@ -7,7 +7,7 @@ function App() {
   const [formData, setFormData] = useState({ studentId: '', name: '', email: '' });
   const [editingId, setEditingId] = useState(null);
 
-  const API_URL = 'http://localhost:5002/api/students';
+  const API_URL = 'https://fictional-palm-tree-q9755947qg4f4jr6-5002.app.github.dev/';
 
   // Câu 63: Hàm tải danh sách sinh viên
   const fetchStudents = async () => {

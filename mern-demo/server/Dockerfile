@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5002
 
 # Lệnh khởi chạy server
-CMD ["npm", "start"]S
+CMD ["npm", "start"]

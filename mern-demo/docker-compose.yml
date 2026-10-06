@@ -1,30 +1,17 @@
+version: '3.8'
+
 services:
-  # Service 1: Express Backend Container
   backend:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
+    build: ./backend
     ports:
       - "5002:5002"
     environment:
       - PORT=5002
-      - MONGODB_URI=mongodb+srv://db_huyhuynh0712:Huy123456@huyhuynh0712.puaczlq.mongodb.net/cloud_lab?appName=huyhuynh0712
-    networks:
-      - mern-network
+      - MONGO_URI=mongodb+srv://huyhuynh0712:huy123@cluster0.mongodb.net/studentdb?retryWrites=true&w=majority
 
-  # Service 2: React Frontend Container
   frontend:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+    build: ./frontend
     ports:
       - "5173:5173"
     depends_on:
       - backend
-    networks:
-      - mern-network
-
-# Docker Network cho phép các Container giao tiếp với nhau
-networks:
-  mern-network:
-    driver: bridge
