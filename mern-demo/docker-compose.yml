@@ -1,0 +1,30 @@
+services:
+  # Service 1: Express Backend Container
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    environment:
+      - PORT=5002
+      - MONGODB_URI=mongodb+srv://db_huyhuynh0712:Huy123456@huyhuynh0712.puaczlq.mongodb.net/cloud_lab?appName=huyhuynh0712
+    networks:
+      - mern-network
+
+  # Service 2: React Frontend Container
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - mern-network
+
+# Docker Network cho phép các Container giao tiếp với nhau
+networks:
+  mern-network:
+    driver: bridge
