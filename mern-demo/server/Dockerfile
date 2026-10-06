@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5002
 
 # Lệnh khởi chạy server
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
